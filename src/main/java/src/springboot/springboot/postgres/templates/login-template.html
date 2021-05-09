@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navigation bar.css') }}">
+
+    <div class="title">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRJl9zV71QbNPQghS7aTuVN7ia9ncZltwHnslxDySQGPxy5aJtK&usqp=CAU"
+        class="topright" width="100" height="100"/>
+        <h2>Welcome to Lewis' Online Bank!</h2>
+    </div>
+</head>
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<form action ="#" method="POST">
+
+<br><br><br>
+
+<span class="error">{{invalid_login}}</span>
+<br>
+
+<div class="label-box">
+    <label>Username</label>
+    <input type="text" name="username">
+</div>
+
+<div class="label-box">
+    <label>Password</label>
+    <input type="password" name="password">
+</div>
+
+<p>
+    Not a member? <a href="http://127.0.0.1:8001/bank/Lewis/account/">Click here</a> to create an account.
+</p>
+
+<input type="submit" value="Login" class="button"/>
+
+{% endblock %}
+</form>
+</html>
